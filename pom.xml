@@ -6,7 +6,7 @@
 
     <groupId>lms.ithillel.ua</groupId>
     <artifactId>qa-demo</artifactId>
-    <version>${project.version}</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
         <module>web-elements</module>
@@ -31,17 +31,17 @@
             <dependency>
                 <groupId>org.example</groupId>
                 <artifactId>bookstore-api</artifactId>
-                <version>${project.version}</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>org.example</groupId>
                 <artifactId>bookstore-application</artifactId>
-                <version>${project.version}</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>org.example</groupId>
                 <artifactId>web-elements</artifactId>
-                <version>${project.version}</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
 
             <!-- base dependencies-->
