@@ -11,22 +11,19 @@ import java.util.Map;
 
 
 public class TextBoxPage extends AbstractPage {
-    private static final String TEXT_BOX_PAGE_URL = "https://demoqa.com/text-box";
-    @FindBy(xpath = "//*[@id=\"userName\"]")
+    private static final String TEXT_BOX_PAGE_URL = baseurl + "/text-box";;
+    @FindBy(id="userName")
     private WebElement fullNameField;
-    @FindBy(xpath = "//*[@id=\"userEmail\"]")
+    @FindBy(id="userEmail")
     private WebElement emailField;
-    @FindBy(xpath = "//*[@id=\"currentAddress\"]")
+    @FindBy(id="currentAddress")
     private WebElement currentAddressField;
-    @FindBy(xpath = "//*[@id=\"permanentAddress\"]")
+    @FindBy(id="permanentAddress")
     private WebElement permanentAddressField;
     @FindBy(css = ".btn-primary")
     public WebElement submitButton;
     @FindBy(xpath = "//div[@class='border col-md-12 col-sm-12']")
     private WebElement resultOutput;
-
-
-
 
     public TextBoxPage(WebDriver driver) {
         super(driver);

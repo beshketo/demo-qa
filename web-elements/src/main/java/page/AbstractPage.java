@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class AbstractPage {
-    String baseurl = "https://demoqa.com";
+    public static String baseurl = "https://demoqa.com";
     protected WebDriver driver;
 
     public AbstractPage(WebDriver driver) {

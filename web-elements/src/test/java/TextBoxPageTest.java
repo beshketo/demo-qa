@@ -11,6 +11,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import page.TextBoxPage;
 import page.User;
+import page.UserFactory;
+
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
@@ -48,16 +50,11 @@ public class TextBoxPageTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(driver -> textBoxPage.getResultDiv().isDisplayed());
 
-
-
         Map<String, String> expectedValues = new HashMap<>();
         expectedValues.put("Name", "Name:"+user.getName());
         expectedValues.put("Email", "Email:" + user.getEmail());
         expectedValues.put("Current Address", "Current Address :" + user.getCurrentAddress());
         expectedValues.put("Permanent Address", "Permananet Address :" + user.getPermanentAddress());
-
-        /*List<WebElement> logelements = driver.findElements(By.xpath("//div[@class='border col-md-12 col-sm-12']"));
-        logelements.forEach(e -> System.out.println(e.getText()));*/
 
         // Перевірка фактичних значень
         Map<String, String> actualValues = getActualValues();
@@ -77,8 +74,7 @@ public class TextBoxPageTest {
 
     static Stream<User> userProvider() {
         return Stream.of(
-                User.generateUser("John Doe", "john.doe@example.com", "123 Main St", "456 Elm St")
-              /*  User.generateUser("Jane Smith", "jane.smith@example.com", "789 Oak St", "101 Pine St")*/
+                UserFactory.generateUser("John Doe", "john.doe@example.com", "123 Main St", "456 Elm St")
         );
     }
 }
