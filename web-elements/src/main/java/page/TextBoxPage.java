@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,15 +25,19 @@ public class TextBoxPage extends AbstractPage {
     public WebElement submitButton;
     @FindBy(xpath = "//div[@class='border col-md-12 col-sm-12']")
     private WebElement resultOutput;
+    @FindBy(css = ".mr-sm-2.field-error")
+    private WebElement emailFieldError;
 
     public TextBoxPage(WebDriver driver) {
         super(driver);
     }
 
+    @Step("Open page")
     public void openTextBoxPage() {
         openPage(TEXT_BOX_PAGE_URL);
     }
 
+    @Step("Fill out form")
     public TextBoxPage fillForm(User user) {
         fullNameField.sendKeys(user.getName());
         emailField.sendKeys(user.getEmail());
@@ -41,6 +46,7 @@ public class TextBoxPage extends AbstractPage {
         return this;
     }
 
+    @Step("Click submit button ")
     public void clickSubmitButton() {
         submitButton.click();
     }
