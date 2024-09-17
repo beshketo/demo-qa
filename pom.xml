@@ -20,7 +20,7 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit-jupiter-version>5.10.1</junit-jupiter-version>
-        <selenium.version>4.16.1</selenium.version>
+        <selenium.version>4.24.0</selenium.version>
         <lombok.version>1.18.30</lombok.version>
     </properties>
 
@@ -43,9 +43,6 @@
                 <artifactId>web-elements</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
-
-            <!-- base dependencies-->
-
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
@@ -57,8 +54,6 @@
                 <artifactId>selenium-java</artifactId>
                 <version>${selenium.version}</version>
             </dependency>
-            <!-- test dependencies-->
-
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-api</artifactId>
@@ -74,8 +69,15 @@
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-devtools-v128</artifactId> <!-- версія вашого Chrome -->
-                <version>4.16.1</version>
+                <version>${selenium.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>1.7.32</version>
+            </dependency>
+
+
 
         </dependencies>
     </dependencyManagement>
