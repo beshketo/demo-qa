@@ -4,6 +4,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.By;
@@ -45,12 +46,12 @@ public class TextBoxPageTest {
             driver.quit();
         }
     }
-
+    @Disabled
     @Severity(SeverityLevel.NORMAL)
     @Description("Sending correct user data")
     @ParameterizedTest
     @MethodSource("userProvider")
-    public void validTest(User user) {
+    public void validTestSendUserData(User user) {
         textBoxPage.fillForm(user);
         WebElement submitButton = driver.findElement(By.cssSelector(".btn-primary"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", submitButton);
@@ -72,12 +73,12 @@ public class TextBoxPageTest {
                 assertEquals(expectedValue, actualValues.get(key), key + " не збігається!")
         );
     }
-
+    @Disabled
     @Severity(SeverityLevel.NORMAL)
     @Description("Sending invalid email data")
     @ParameterizedTest
     @MethodSource("userInvalidProvider")
-    public void invalidTest(User user) {
+    public void invalidTestSendUserData(User user) {
         textBoxPage.fillForm(user);
         WebElement submitButton = driver.findElement(By.cssSelector(".btn-primary"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", submitButton);

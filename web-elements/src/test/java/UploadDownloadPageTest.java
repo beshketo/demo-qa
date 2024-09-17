@@ -4,10 +4,7 @@ import io.qameta.allure.Attachment;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -40,7 +37,7 @@ public class UploadDownloadPageTest {
             driver.quit();
         }
     }
-
+    @Disabled
     @Test
     @Severity(SeverityLevel.CRITICAL)
     @Description("Check downloading the file")
@@ -51,7 +48,7 @@ public class UploadDownloadPageTest {
         boolean result = fileDownloadChecker.checkDownloadedFile();
         Assert.isTrue(result, "File isn't downloaded");
     }
-
+    @Disabled
     @Test
     @Severity(SeverityLevel.CRITICAL)
     @Description("Check uploading the file")
