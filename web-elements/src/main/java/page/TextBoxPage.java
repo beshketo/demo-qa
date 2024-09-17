@@ -11,7 +11,7 @@ import java.util.Map;
 
 
 public class TextBoxPage extends AbstractPage {
-    private static final String TEXT_BOX_PAGE_URL = baseurl + "/text-box";;
+    private static final String TEXT_BOX_PAGE_URL = baseurl + "/text-box";
     @FindBy(id="userName")
     private WebElement fullNameField;
     @FindBy(id="userEmail")
