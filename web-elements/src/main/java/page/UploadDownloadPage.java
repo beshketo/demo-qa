@@ -15,13 +15,12 @@ import java.time.Duration;
 
 @Slf4j
 public class UploadDownloadPage  extends AbstractPage  {
-    WebDriver webDriver;
     private static final String UPLOAD_DOWNLOAD_PAGE_URL = baseurl + "/upload-download";
     @FindBy(id="downloadButton")
     private WebElement downloadButton;
     @FindBy(id = "uploadFile")
     private WebElement chooseFileButton;
-    Robot robot = new Robot();
+    private Robot robot;
 
     public UploadDownloadPage(WebDriver driver) throws AWTException  {
         super(driver);
@@ -41,6 +40,7 @@ public class UploadDownloadPage  extends AbstractPage  {
         robot.delay(2000);
     }
 
+    @Step("Upload the file")
     public void uploadFile(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement chooseFileButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("uploadFile")));
