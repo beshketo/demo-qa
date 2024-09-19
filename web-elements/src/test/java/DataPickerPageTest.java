@@ -9,13 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import page.DatePickerPage;
-import page.ModalDialogsPage;
 
-import java.time.Duration;
 
 public class DataPickerPageTest {
     private static WebDriver driver;
@@ -43,7 +38,5 @@ public class DataPickerPageTest {
         String expectedResult = DatePickerPage.changeDataInSelectDataPicker(5);
         String actualResult = driver.findElement(By.id("datePickerMonthYearInput")).getAttribute("value");
         Assertions.assertEquals(expectedResult, actualResult, "The data isn't similar");
-
-
     };
 }
