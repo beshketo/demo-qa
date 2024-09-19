@@ -19,7 +19,7 @@ public class ModalDialogsPage extends AbstractPage {
     @FindBy(id = "closeSmallModal")
     WebElement closeSmallModalButton;
 
-    @FindBy(id = "closeLargeModal")
+    @FindBy(className ="close")
     WebElement closeLargeModalButton;
 
     public void openModalDialogPage() {
@@ -35,9 +35,13 @@ public class ModalDialogsPage extends AbstractPage {
         return this;
     }
 
-
     public ModalDialogsPage openLargeModalWindow() {
         largeModalButton.click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        return this;
+    }
+
+    public ModalDialogsPage сloseLargeModalWindow() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         closeLargeModalButton.click();
         return this;
