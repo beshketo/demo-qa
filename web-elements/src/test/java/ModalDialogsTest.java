@@ -26,7 +26,6 @@ public class ModalDialogsTest {
     @BeforeAll
     public static void setUp() {
         driver = ConfigProvider.getDriver();
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         ModalDialogPage = new ModalDialogsPage(driver);
         ModalDialogPage.openModalDialogPage();
     }
