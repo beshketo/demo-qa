@@ -39,4 +39,18 @@ public class DataPickerPageTest {
         String actualResult = driver.findElement(By.id("datePickerMonthYearInput")).getAttribute("value");
         Assertions.assertEquals(expectedResult, actualResult, "The data isn't similar");
     };
+
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Description("checkChangingTimeInDateAndTimePicker")
+    public void changingTimeInDateAndTimePicker(){
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 500);");
+
+        String expectedResult = DatePickerPage.changeTimeInDateAndTimePicker("09:00");
+        String actualResult = driver.findElement(By.id("dateAndTimePickerInput")).getAttribute("value");
+
+        Assertions.assertEquals(expectedResult, actualResult, "The data isn't similar");
+    };
+
 }
