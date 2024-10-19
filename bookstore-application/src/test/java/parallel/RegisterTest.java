@@ -11,6 +11,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lms.ithillel.test.RegisterPage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -85,7 +87,7 @@ public class RegisterTest {
     }
 
     @Then("Expected all fields in red color")
-    public void assertWrongResult(){
+    public void assertResultsWithEmptyData(){
 
         $("#firstname").shouldHave(Condition.cssClass("is-invalid"));
         $("#password").shouldHave(Condition.cssClass("is-invalid"));
@@ -93,6 +95,15 @@ public class RegisterTest {
         boolean isPasswordWithRedColorVisible = $("#password").has(Condition.cssClass("is-invalid"));
         Assert.assertTrue(isPasswordWithRedColorVisible, "Password field is not highlighted in red");
         Assert.assertTrue(isFirstNameWithRedColorVisible, "First Name field is not highlighted in red");
+
+    }
+
+    @Then("Expected assert password message")
+    public void asserResultWithWrongData(){
+        String actualMessage = $("p#name.mb-1").getText();
+        String expectedMessage = "Passwords must have at least one non alphanumeric character, one digit ('0'-'9'), one uppercase ('A'-'Z'), one lowercase ('a'-'z'), one special character and Password must be eight characters or longer.";
+
+        Assert.assertEquals(actualMessage, expectedMessage, "The error message does not match!");
 
     }
 
