@@ -19,5 +19,6 @@ public class User {
         this.permanentAddress = permanentAddress;
     }
 
+    // User newUser = User.createUser("John", "john@example.com", "123 Main St", "456 Elm St");
 
 }
