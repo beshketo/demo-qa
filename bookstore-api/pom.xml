@@ -6,7 +6,7 @@
     <parent>
         <groupId>lms.ithillel.ua</groupId>
         <artifactId>qa-demo</artifactId>
-        <version>${project.version}</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>bookstore-api</artifactId>
