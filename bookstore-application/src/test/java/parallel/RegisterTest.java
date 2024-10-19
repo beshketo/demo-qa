@@ -10,12 +10,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lms.ithillel.test.RegisterPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.testng.asserts.Assertion;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -60,6 +62,7 @@ public class RegisterTest {
 
     @When("Check Captcha box")
     public void solveCaptcha() {
+        executeJavaScript("arguments[0].scrollIntoView(true);", $("#g-recaptcha"));
         $("#g-recaptcha").click();
         // Виводимо повідомлення для ручного проходження CAPTCHA
         System.out.println("Будь ласка, пройдіть CAPTCHA вручну.");
@@ -72,13 +75,27 @@ public class RegisterTest {
     }
 
     @Then("Expected success message")
-    public void assertResult(){
+    public void assertSuccessResult(){
+
         Selenide.Wait().until(ExpectedConditions.alertIsPresent());
 
         String alertMessage = switchTo().alert().getText();
         Assert.assertEquals(alertMessage, "User Register Successfully.");
         switchTo().alert().accept();
     }
+
+    @Then("Expected all fields in red color")
+    public void assertWrongResult(){
+
+        $("#firstname").shouldHave(Condition.cssClass("is-invalid"));
+        $("#password").shouldHave(Condition.cssClass("is-invalid"));
+        boolean isFirstNameWithRedColorVisible = $("#firstname").has(Condition.cssClass("is-invalid"));
+        boolean isPasswordWithRedColorVisible = $("#password").has(Condition.cssClass("is-invalid"));
+        Assert.assertTrue(isPasswordWithRedColorVisible, "Password field is not highlighted in red");
+        Assert.assertTrue(isFirstNameWithRedColorVisible, "First Name field is not highlighted in red");
+
+    }
+
     @After
     public void tearDown() {
         // Закриття браузеру після тесту

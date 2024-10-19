@@ -11,3 +11,8 @@ Feature: User Registration
       | firstName   | lastname | userName  | password      |
       | John   | New      | John123   | Ntesttest77!! |
 
+  Scenario Outline: Submit registration form with empty fields
+    Given Open Register page
+    When Check Captcha box
+    When Click Register button
+    Then Expected all fields in red color
