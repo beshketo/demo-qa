@@ -10,8 +10,7 @@ public class LoginPage extends AbstractPage {
         super(driver);
     }
     final String LOGIN_PAGE_URL = baseurl + "/login";
-    @FindBy(id = "newUser")
-    WebElement newUserButton;
+
     public void openPage() {
       openPage(LOGIN_PAGE_URL);
     }
