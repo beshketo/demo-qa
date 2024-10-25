@@ -1,42 +1,25 @@
-Feature: Book Store test
+Feature: Profile Page test
 
 
-  Scenario Outline: Find the book by title
+  Scenario Outline: Message is displayed on the profile page for unlogged-in user
 
-    Given Open Book Store page
-    When Fill out search field with part of title: "<part_title>"
-    Then The book searched by title is displayed
+    Given Open Profile page
+    When The title is displayed on the profile page for unlogged-in user
 
+  Scenario Outline: Check redirection to Login page after click on link on Profile page
 
-    Examples:
-      | part_title |
-      | Learning JavaScript |
+    Given Open Profile page
+    Then Click the login link in text on page
+    When Login Page is opened after clicking the link
 
+  Scenario Outline: Dashboard is opened for logged in user
 
-  Scenario Outline: Find the book by author
-
-    Given Open Book Store page
-    When Fill out the search field with name of author: "<author>"
-    Then The book searched by author is displayed
-
-    Examples:
-      | author    |
-      | Glenn Block et al. |
-
-  Scenario Outline: Sort by DESK the book by author
-
-    Given Open Book Store page
-    When Click on the Author button
-    Then All books are sorted by the name of the author
-
-  Scenario Outline: List of books is displayed for login in user
-
-    Given Open Book Store page
-    When Click on the Login button on Book Store Page
-    When Fill out all fields for login: "<userName>", "<password>"
-    When Click on the Login button on Book Store Page
-    Then User is logged in Account: "<userName>"
+    Given Open Profile page
+    Then Click the login link in text on page
+    Then Fill out all fields with existing user data: "<userName>", "<password>"
+    Then Click the Login button
+    When Empty dashboard is opened for logged-in user
 
     Examples:
-      | userName    | password    |
-      | John1234 | Ntesttest77!!    |
+      |  userName  | password      |
+      | John1234   | Ntesttest77!! |
