@@ -4,22 +4,22 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import lms.ithillel.test.BookStorePage;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class BookStoreTest {
-    private static BookStorePage bookStorePage;
+
 
     @BeforeAll
     public static void setUp() {
-        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = false;
         Configuration.browser = "Chrome";
         Configuration.browserSize = "1920x1080";
         Configuration.timeout = 2000;
@@ -36,6 +36,7 @@ public class BookStoreTest {
         Configuration.timeout = 1000;
         $("#searchBox").setValue(partTitle);
     }
+
     @When("Fill out the search field with name of author: {string}")
     public void FillOutAuthorInSearchField(String author) {
         System.out.println("author: " + author);
@@ -53,6 +54,7 @@ public class BookStoreTest {
         $("#login").click();
         Configuration.timeout = 1000;
     }
+
     @When("Fill out all fields for login: {string}, {string}")
     public void FillOutExistingUserData(String userName, String password) {
         System.out.println("userName: " + userName);
@@ -74,24 +76,27 @@ public class BookStoreTest {
         boolean isChosenBookDisplayed = $x("//div[text()=\"Glenn Block et al.\"]\t").isDisplayed();
         Assert.assertTrue(isChosenBookDisplayed, "The chosen book isn't displayed");
     }
+
     @Then("All books are sorted by the name of the author")
     public void assertBooksSortedByAuthorIsDisplayed() {
         String actualFirstAuthor = $x("//div[@class='rt-tr-group'][1]//div[@class='rt-td'][position()=3]").getText();
         String FirstAuthorInList = "Addy Osmani";
-        Assert.assertEquals(actualFirstAuthor, FirstAuthorInList, "Wrong first author after sorting" );
+        Assert.assertEquals(actualFirstAuthor, FirstAuthorInList, "Wrong first author after sorting");
 
     }
 
     @Then("User is logged in Account: {string}")
     public void assertUserIsLoggedInAccount(String userName) {
         String nameOfUser = $("#userName-value").getText();
-        Assert.assertEquals(nameOfUser, userName, "User isn't logged in" );
+        Assert.assertEquals(nameOfUser, userName, "User isn't logged in");
 
     }
 
+
     @After
-    public static void tearDown() {
-        Selenide.closeWebDriver();
+    public void tearDown() {
+        System.out.println("Закриття браузера");
+        closeWebDriver();
     }
 
 }
