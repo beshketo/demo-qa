@@ -10,14 +10,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lms.ithillel.test.LoginPage;
-import lms.ithillel.test.ProfilePage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class ProfilePageTest {
-    private static ProfilePage profilePage;
     private LoginPage loginPage;
     private WebDriver driver;
 
