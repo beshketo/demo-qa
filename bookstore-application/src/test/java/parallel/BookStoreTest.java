@@ -32,13 +32,11 @@ public class BookStoreTest {
 
     @When("Fill out search field with part of title: {string}")
     public void FillOutTitleInSearchField(String partTitle) {
-        System.out.println("partTitle: " + partTitle);
         Configuration.timeout = 1000;
         $("#searchBox").setValue(partTitle);
     }
     @When("Fill out the search field with name of author: {string}")
     public void FillOutAuthorInSearchField(String author) {
-        System.out.println("author: " + author);
         Configuration.timeout = 1000;
         $("#searchBox").setValue(author);
     }
@@ -55,8 +53,6 @@ public class BookStoreTest {
     }
     @When("Fill out all fields for login: {string}, {string}")
     public void FillOutExistingUserData(String userName, String password) {
-        System.out.println("userName: " + userName);
-        System.out.println("password: " + password);
         Configuration.timeout = 1000;
         $("#userName").setValue(userName);
         Configuration.timeout = 1000;
