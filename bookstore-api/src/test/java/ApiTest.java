@@ -71,7 +71,8 @@ public class ApiTest {
                 .baseUri("https://demoqa.com/BookStore/v1/Book?ISBN=" + isbn)
                 .contentType(ContentType.JSON)
                 .then()
-                .statusCode(200).body("status", equalTo("Success"))
+                .statusCode(200)
+                .body("status", equalTo("Success"))
                 .body("isbn", Matchers.containsString(isbn))
                 .body("title", Matchers.containsString(expectedTitle));
     }
