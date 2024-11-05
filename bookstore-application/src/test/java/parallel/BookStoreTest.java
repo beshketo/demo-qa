@@ -2,14 +2,11 @@ package parallel;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import lms.ithillel.test.BookStorePage;
 import org.testng.Assert;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;

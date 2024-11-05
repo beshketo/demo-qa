@@ -103,6 +103,22 @@
             <groupId>lms.ithillel.ua</groupId>
             <artifactId>web-elements</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.32</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>module</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

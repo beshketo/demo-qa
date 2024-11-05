@@ -1,4 +1,4 @@
-package lms.ithillel.test;
+package page;
 
 import static com.codeborne.selenide.Selenide.*;
 
