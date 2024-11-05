@@ -1,4 +1,4 @@
-package lms.ithillel.test;
+package page;
 
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.WebDriver;

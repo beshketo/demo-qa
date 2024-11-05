@@ -8,9 +8,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import lms.ithillel.test.LoginPage;
-import lms.ithillel.test.RegisterPage;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import page.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 

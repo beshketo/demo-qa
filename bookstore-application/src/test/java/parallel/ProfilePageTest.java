@@ -1,15 +1,13 @@
 package parallel;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import lms.ithillel.test.LoginPage;
+import page.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
