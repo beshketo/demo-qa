@@ -45,15 +45,6 @@ public class LoginTest {
         $("#password").setValue(password);
     }
 
-  /*  @When("Fill out all fields with non-existing user data: {string}, {string}")
-    public void FillOutNonExistingName(String userName, String password) {
-        System.out.println("userName: " + userName);
-        System.out.println("password: " + password);
-        Configuration.timeout = 1000;
-        $("#userName").setValue(userName);
-        Configuration.timeout = 1000;
-        $("#password").setValue(password);
-    }*/
 
     @When("Click the Login button")
     public void clickLoginButton() {
