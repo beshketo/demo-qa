@@ -13,6 +13,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.DataProvider;
 import page.TextBoxPage;
 import page.User;
 import page.UserFactory;
@@ -46,6 +47,7 @@ public class TextBoxPageTest {
             driver.quit();
         }
     }
+
     @Disabled
     @Severity(SeverityLevel.NORMAL)
     @Description("Sending correct user data")
@@ -73,6 +75,8 @@ public class TextBoxPageTest {
                 assertEquals(expectedValue, actualValues.get(key), key + " не збігається!")
         );
     }
+
+
     @Disabled
     @Severity(SeverityLevel.NORMAL)
     @Description("Sending invalid email data")

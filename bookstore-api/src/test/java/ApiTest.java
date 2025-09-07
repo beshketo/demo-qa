@@ -1,7 +1,9 @@
 import io.restassured.http.ContentType;
 import lms.ithillel.ua.User;
 import org.hamcrest.Matchers;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.net.http.HttpRequest;
@@ -90,6 +92,24 @@ public class ApiTest {
     public User generateUser(){
         return new User("John1234", "Ntesttest77!!");
     }
+
+    // Створи DataProvider із трьома наборами чисел і тест, який перевіряє додавання (наприклад, 2+2=4).
+    @DataProvider(name = "sumData")
+    public Object[][] sumData() {
+        return new Object[][]{
+                {2, 4, 6},
+                {6, 9, 15},
+                {9, 2, 11},
+                {9, 3, 12}
+        };
+    }
+
+    @Test(dataProvider = "sumData")
+    public void addNumbers(int a, int b, int expectedSum) {
+        int actualSum = a + b;
+        Assert.assertEquals(actualSum, expectedSum, "Cума не вірна");
+    }
+
 
 }
 

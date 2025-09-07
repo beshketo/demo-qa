@@ -10,16 +10,19 @@ import page.AlertsPage;
 
 import java.time.Duration;
 
-public class runTestInThread extends Thread {
-    private WebDriver driver; // 🔄 тут зберігається драйвер
+public class runnableThread implements Runnable {
+    private static WebDriver driver;
 
-    public runTestInThread(WebDriver webDriver) {
+    public runnableThread(WebDriver webDriver) {
         this.driver = webDriver;
     }
 
     @Override
     public void run() {
         try {
+
+            System.out.println("Починаємо тест в потоці: " + Thread.currentThread().getName());
+
             AlertsPage alertsPage = new AlertsPage(driver);
             alertsPage.openAlertsPage();
             ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 500);");
@@ -33,12 +36,11 @@ public class runTestInThread extends Thread {
             Assertions.assertEquals(alertText, "This alert appeared after 5 seconds");
             alert.accept();
             System.out.println("✅ Потік " + Thread.currentThread().getName() + " успішно завершив тест!");
+            driver.quit();
         } catch (RuntimeException e) {
             throw new RuntimeException(e);
-        }  finally {
+        } finally {
             driver.quit();
         }
     }
-
-
 }
